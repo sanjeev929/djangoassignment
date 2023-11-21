@@ -1,0 +1,15 @@
+<!-- candidate_app/templates/candidate_app/candidate_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Details</title>
+</head>
+<body>
+    <h1>Candidate Details</h1>
+    <p>Name: {{ candidate.first_name }} {{ candidate.last_name }}</p>
+    <!-- Add other details as needed -->
+    <a href="{% url 'candidate_list' %}">Back to Candidate List</a>
+</body>
+</html>

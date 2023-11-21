@@ -1,0 +1,18 @@
+<!-- candidate_app/templates/candidate_app/candidate_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Candidate</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Candidate</h1>
+    <form method="post" action="{% if form.instance.pk %}{% url 'candidate_update' form.instance.pk %}{% else %}{% url 'candidate_create' %}{% endif %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if form.instance.pk %}Save Changes{% else %}Create Candidate{% endif %}</button>
+    </form>
+    <a href="{% url 'candidate_list' %}">Cancel</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!-- candidate_app/templates/candidate_app/candidate_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate List</title>
+</head>
+<body>
+    <h1>Candidate List</h1>
+    <ul>
+        {% for candidate in candidates %}
+            <li>
+                {{ candidate.first_name }} {{ candidate.last_name }}
+                - <a href="{% url 'candidate_detail' candidate.pk %}">Details</a>
+                - <a href="{% url 'candidate_update' candidate.pk %}">Edit</a>
+                - <a href="{% url 'candidate_delete' candidate.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'candidate_create' %}">Add New Candidate</a>
+</body>
+</html>
